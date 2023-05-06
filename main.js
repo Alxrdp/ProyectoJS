@@ -1,24 +1,30 @@
 // verificar edad
-/*let Dia
-let mes
-let año*/
-alert ("Ingrese su edad")
 
-let dia = parseFloat(prompt("Ingrese Día"));
-let mes = parseFloat(prompt( "ingrese Mes"));
-let año = parseFloat(prompt("ingrese Año"));
+alert ("Ingrese sus datos")
+let nom = prompt("Ingrese sus nombres").toUpperCase();
+let ape = prompt( "ingrese sus apellidos").toUpperCase();
+let dia = parseInt(prompt("Ingrese Día"));
+let mes = parseInt(prompt( "ingrese Mes"));
+let año = parseInt(prompt("ingrese Año"));
+let continuar = true
 
-        const mensajeEdad = (año)=>{
-            if (año  > 2005){
-                return "Es mayor de edad puede ingresar"
-            }else{
-                return "no puede ingresar"
-            }
-        }
-        alert("Su fecha es: "+ dia +"/" + mes + "/"+ año);
-        console.log()
-        alert(mensajeEdad(mensajeEdad))
-             
-           
+if ((año) < 2005){
+    continuar=false
+    alert(" Hola " + nom +" "+ ape)
+    alert("Su fecha es: "+ dia +"/" + mes + "/"+ año);
+    alert ("Puede ingresar al sitio")
+}else {
+    while (continuar){
+    alert("No puede ingresar, debe ser mayor de edad")
+    continuar= confirm ("salir")
+console.log("La edad ingresada es: " + edad);
+    
+}
+}
+console.log( dia,mes,año)
+console.log(nom,ape)
+
+
+
 
 
