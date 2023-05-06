@@ -7,7 +7,7 @@ let dia = parseInt(prompt("Ingrese Día"));
 let mes = parseInt(prompt( "ingrese Mes"));
 let año = parseInt(prompt("ingrese Año"));
 let continuar = true
-
+let edad = (dia+mes+año)
 if ((año) < 2005){
     continuar=false
     alert(" Hola " + nom +" "+ ape)
@@ -17,7 +17,8 @@ if ((año) < 2005){
     while (continuar){
     alert("No puede ingresar, debe ser mayor de edad")
     continuar= confirm ("salir")
-console.log("La edad ingresada es: " + edad);
+    continuar=false
+console.log("El año ingresado es: " + edad);
     
 }
 }
