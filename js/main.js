@@ -1,30 +1,54 @@
 // verificar edad
 
-alert ("Ingrese sus datos")
-let nom = prompt("Ingrese sus nombres").toUpperCase();
-let ape = prompt( "ingrese sus apellidos").toUpperCase();
-let dia = parseInt(prompt("Ingrese Día"));
-let mes = parseInt(prompt( "ingrese Mes"));
-let año = parseInt(prompt("ingrese Año"));
-let continuarVerificar = true
-let edad = (dia+mes+año)
-if ((año) < 2005){
-    continuarVerificar=false
-    alert(" Hola " + nom +" "+ ape)
-    alert("Su fecha es: "+ dia +"/" + mes + "/"+ año);
-    alert ("Puede ingresar al sitio")
-}else {
-    while (continuarVerificar){
-    alert("No puede ingresar, debe ser mayor de edad")
-    continuarVerificar= confirm ("salir")
-    continuarVerificar=false
-console.log("El año ingresado es: " + edad);
-    
-}
-}
-console.log( dia,mes,año)
-console.log(nom,ape)
-//formulario
+
+function verificarEntero(variable) {
+    let valor;
+    let cont = true;
+  
+    do {
+      valor = parseInt(prompt(`Ingrese ${variable}`));
+      if (Number.isInteger(valor)) {
+        console.log(`La variable ${variable} es entera`);
+        cont = false;
+      } else {
+        alert(`Ingrese números para ${variable}`);
+      }
+    } while (cont);
+  
+    return valor;
+  }
+  
+  alert ("Ingrese su fecha de nacimiento")
+  let dia = verificarEntero('Día');
+  let mes = verificarEntero('Mes');
+  let año = verificarEntero('Año');
+  
+  
+  
+  console.log(`Día: ${dia}`);
+  console.log(`Mes: ${mes}`);
+  console.log(`Año: ${año}`);
+
+  let continuarVerificar = true
+  let edad = (dia+mes+año)
+  if ((año) < 2005){
+      continuarVerificar=false
+      //alert(" Hola " + nom +" "+ ape)
+      alert("Su fecha es: "+ dia +"/" + mes + "/"+ año);
+      alert ("Puede ingresar al sitio")
+  }else {
+      while (continuarVerificar){
+      alert("No puede ingresar, debe ser mayor de edad")
+      continuarVerificar= confirm ("salir")
+      continuarVerificar=false
+      continuar=false
+  
+  console.log("El año ingresado es: " + edad);
+      
+  }
+  }
+  console.log( dia,mes,año)
+  //formulario
 
 class Datos {
     constructor(nombre,apellido,telefono,email){
@@ -38,10 +62,10 @@ const datos = []
 let continuar = true
 
 while(continuar === true){
-    const nombre = prompt("ingrese su nombre").toUpperCase()
-    const apellido = prompt("ingrese sus apellidos").toUpperCase()
-    const telefono = parseFloat(prompt("Ingrese su telefono")) 
-    const email = prompt("ingrese sus email").toUpperCase() 
+    const nombre = prompt("Ingrese su nombre").toUpperCase()
+    const apellido = prompt("Ingrese sus apellidos").toUpperCase()
+    const telefono = verificarEntero ('telefono')
+    const email = prompt("Ingrese su email").toUpperCase() 
     const dato = new Datos(nombre,apellido,telefono,email)
     datos.push(dato)
     continuar = confirm("Quiere continuar?")
@@ -55,14 +79,14 @@ while(continuar){
     if(index != -1){
         const nombre = prompt("ingrese su nombre").toUpperCase()
         const apellido = prompt("ingrese sus apellidos").toUpperCase()
-        const telefono = prompt("ingrese su telefono").toUpperCase() 
-        const email = parseInt(prompt("Ingrese su email"))
+        const telefono = verificarEntero ('telefono') 
+        const email = prompt("Ingrese su email").toUpperCase()
         datos[index].nombre = nombre
         datos[index].apellido = apellido
         datos[index].telefono = telefono
         datos[index].email = email
         alert("Datos actualizados")
-        alert("Nuevos datos: " + nombre +" "+apellido + " "+ telefono + " "+email )
+        alert("Nuevos datos: Nombre "+ nombre +" "+apellido +" Telefono "+ telefono + " Email "+email )
     }else{
         alert("No se pudo actualizar el dato por que no existe")
     }
