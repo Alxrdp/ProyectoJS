@@ -24,83 +24,48 @@ console.log("El año ingresado es: " + edad);
 }
 console.log( dia,mes,año)
 console.log(nom,ape)
+//formulario
 
-class Cerveza {
-    constructor(nombreCerveza,descripcion,precio,stock){
-        this.nombreCerveza = nombreCerveza
-        this.descripcion = descripcion
-        this.precio = precio
-        this.stock = stock
-        this.fechaCreacion = new Date()
-        this.fechaActulizacion
-        
-    }
-    aumento(porcentaje){
-        this.precio = this.precio + this.precio * porcentaje
-        this.fechaActulizacion = new Date()
+class Datos {
+    constructor(nombre,apellido,telefono,email){
+        this.nombre = nombre
+        this.apellido = apellido
+        this.telefono = telefono
+        this.email = email   
     }
 }
-const productos = []
+const datos = []
 let continuar = true
 
 while(continuar === true){
-    const nombreCerveza = prompt("ingrese el nombre de la cerveza").toUpperCase()
-    const descripcion = prompt("ingrese Descripcion").toUpperCase()
-    const precio = parseFloat(prompt("Ingrese precio")) 
-    const stock = parseInt(prompt("Ingrese stock")) 
-    const cerveza = new Producto(nombreCerveza,descripcion,precio,stock)
-    productos.push(Cerveza)
-    continuar = confirm("Quiere continuar cargando productos")
+    const nombre = prompt("ingrese su nombre").toUpperCase()
+    const apellido = prompt("ingrese sus apellidos").toUpperCase()
+    const telefono = parseFloat(prompt("Ingrese su telefono")) 
+    const email = prompt("ingrese sus email").toUpperCase() 
+    const dato = new Datos(nombre,apellido,telefono,email)
+    datos.push(dato)
+    continuar = confirm("Quiere continuar?")
 }
-console.log(productos)
-continuar = confirm("Quiere eliminar algun producto")
-while(continuar){
-    const productoNombreEliminar = prompt("que producto quiere eliminar?").toUpperCase()
-    const index = productos.findIndex((producto)=> producto.nombreCerveza === productoNombreEliminar)
-    if(index != -1){
-        productos.splice(index,1)
-        alert("Producto eliminado")
-    }else{
-        alert("No se pudo eliminar el producto por que no existe")
-    }
-    continuar = confirm("Quiere eliminar algun producto")
-}
+console.log(datos)
 
-console.log(productos)
-continuar = confirm("Quiere actualizar algun producto")
+continuar = confirm("Quiere actualizar algun dato")
 while(continuar){
-    const productoNombreActualizar = prompt("que producto quiere actualizar?").toUpperCase()
-    const index = productos.findIndex((producto)=> producto.nombreCerveza === productoNombreActualizar)
+    const datoActualizar = prompt("Que dato quiere actualizar?").toUpperCase()
+    const index = datos.findIndex((dato)=> dato.nombre === datoActualizar)
     if(index != -1){
-        const nombreCerveza = prompt("ingrese Nombre").toUpperCase()
-        const descripcion = prompt("ingrese Descripcion").toUpperCase()
-        const precio = parseFloat(prompt("Ingrese precio")) 
-        const stock = parseInt(prompt("Ingrese stock"))
-        productos[index].nombreCerveza = nombreCerveza
-        productos[index].descripcion = descripcion
-        productos[index].precio = precio
-        productos[index].stock = stock
-        productos[index].fechaActulizacion = new Date()
-        alert("Producto actualizado")
+        const nombre = prompt("ingrese su nombre").toUpperCase()
+        const apellido = prompt("ingrese sus apellidos").toUpperCase()
+        const telefono = prompt("ingrese su telefono").toUpperCase() 
+        const email = parseInt(prompt("Ingrese su email"))
+        datos[index].nombre = nombre
+        datos[index].apellido = apellido
+        datos[index].telefono = telefono
+        datos[index].email = email
+        alert("Datos actualizados")
+        alert("Nuevos datos: " + nombre +" "+apellido + " "+ telefono + " "+email )
     }else{
-        alert("No se pudo actualizar el producto por que no existe")
+        alert("No se pudo actualizar el dato por que no existe")
     }
-    continuar = confirm("Quiere actualizar algun producto")
+    continuar = confirm("Quiere actualizar otro dato?")
 }
-console.log(productos)
-
-continuar = confirm("Quiere aumentar algun producto")
-while(continuar){
-    const productoNombreActualizar = prompt("que producto quiere aumentar?").toUpperCase()
-    const index = productos.findIndex((producto)=> producto.nombreCerveza === productoNombreActualizar)
-    if(index != -1){
-        const procertajeActualizado = parseFloat(prompt("Ingrese que porcentaje quiere aumentar el producto"))
-        productos[index].aumento(procertajeActualizado) 
-        alert("Producto eliminado")
-    }else{
-        alert("No se pudo eliminar el producto por que no existe")
-    }
-    continuar = confirm("Quiere eliminar algun producto")
-}
-
-console.log(productos)
+console.log(datos)
