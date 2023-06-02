@@ -3,12 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="stylesheet" href="./css/estilos.css" >
     <title>Document</title>
 </head>
 <body>
     <div>
-        
+        <div class="formularioUbicacion">
+            <form id="formulario" >
+                <h4 style="text-align: center;">Dejanos tus datos</h4>
+                <label for="nombre">Nombres</label>
+                <input type="text" name="nombre" id="nombre" placeholder="Escribe tu nombre"/>            
+                <label for="apellidos">Apellidos</label>
+                <input type="text" name="apellidos" id="apellidos" placeholder="Escribe tu apellido"/>  
+                <label for="telefono">Telefono</label>
+                <input type="text" name="telefono" id="telefono" placeholder="Escribe tu telefono"/>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="email" required />            
+                <input type="submit" name="enviar" id="enviar" value="Enviar">
+            </form>
+        </div>
     </div>
     <script src="js/main.js"></script>
 </body>

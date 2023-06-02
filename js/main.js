@@ -1,7 +1,7 @@
 // verificar edad
 
 
-function verificarEntero(variable) {
+/*function verificarEntero(variable) {
     let valor;
     let cont = true;
   
@@ -47,7 +47,7 @@ function verificarEntero(variable) {
       
   }
   }
-  console.log( dia,mes,año)
+  console.log( dia,mes,año)*/
   //formulario
 
 class Datos {
