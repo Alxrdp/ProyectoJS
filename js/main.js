@@ -1,7 +1,5 @@
 // verificar edad
-
-
-/*function verificarEntero(variable) {
+function verificarEntero(variable) {
     let valor;
     let cont = true;
   
@@ -13,8 +11,7 @@
       } else {
         alert(`Ingrese números para ${variable}`);
       }
-    } while (cont);
-  
+    } while (cont);  
     return valor;
   }
   
@@ -22,8 +19,6 @@
   let dia = verificarEntero('Día');
   let mes = verificarEntero('Mes');
   let año = verificarEntero('Año');
-  
-  
   
   console.log(`Día: ${dia}`);
   console.log(`Mes: ${mes}`);
@@ -42,54 +37,23 @@
       continuarVerificar= confirm ("salir")
       continuarVerificar=false
       continuar=false
-  
   console.log("El año ingresado es: " + edad);
-      
   }
   }
-  console.log( dia,mes,año)*/
-  //formulario
-
-class Datos {
-    constructor(nombre,apellido,telefono,email){
-        this.nombre = nombre
-        this.apellido = apellido
-        this.telefono = telefono
-        this.email = email   
-    }
-}
-const datos = []
-let continuar = true
-
-while(continuar === true){
-    const nombre = prompt("Ingrese su nombre").toUpperCase()
-    const apellido = prompt("Ingrese sus apellidos").toUpperCase()
-    const telefono = verificarEntero ('telefono')
-    const email = prompt("Ingrese su email").toUpperCase() 
-    const dato = new Datos(nombre,apellido,telefono,email)
-    datos.push(dato)
-    continuar = confirm("Quiere continuar?")
-}
-console.log(datos)
-
-continuar = confirm("Quiere actualizar algun dato")
-while(continuar){
-    const datoActualizar = prompt("Que dato quiere actualizar?").toUpperCase()
-    const index = datos.findIndex((dato)=> dato.nombre === datoActualizar)
-    if(index != -1){
-        const nombre = prompt("ingrese su nombre").toUpperCase()
-        const apellido = prompt("ingrese sus apellidos").toUpperCase()
-        const telefono = verificarEntero ('telefono') 
-        const email = prompt("Ingrese su email").toUpperCase()
-        datos[index].nombre = nombre
-        datos[index].apellido = apellido
-        datos[index].telefono = telefono
-        datos[index].email = email
-        alert("Datos actualizados")
-        alert("Nuevos datos: Nombre "+ nombre +" "+apellido +" Telefono "+ telefono + " Email "+email )
-    }else{
-        alert("No se pudo actualizar el dato por que no existe")
-    }
-    continuar = confirm("Quiere actualizar otro dato?")
-}
-console.log(datos)
+  console.log( dia,mes,año)
+document.getElementById('formulario').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+    const nombre = document.getElementById('nombre').value;
+    const apellidos = document.getElementById('apellidos').value;
+    const telefono = document.getElementById('telefono').value;
+    const email = document.getElementById('email').value;
+    const datosJSONAnteriores = localStorage.getItem('formularioDatos');
+    const datosArrayAnteriores = datosJSONAnteriores ? JSON.parse(datosJSONAnteriores) : [];
+    const datosArray = datosArrayAnteriores.concat([nombre, apellidos, telefono, email]);
+    console.log(datosArray);
+    const datosJSON = JSON.stringify(datosArray);
+    //datos guardados en el LocalStorage
+    localStorage.setItem('formularioDatos', datosJSON);
+    alert('Los datos se han guardado correctamente.');
+    document.getElementById('formulario').reset();
+  });
